@@ -70,35 +70,42 @@ public class Contact {
         int tdyDay = Integer.parseInt(todaysDate.substring(todaysDate.indexOf("/")+1));
 
         String bday = birthday.substring(0, birthday.length()-5);
-        int bdayMonth = Integer.parseInt(bday.substring(0,bday.indexOf("/"))) +12;
+        int bdayMonth = Integer.parseInt(bday.substring(0,bday.indexOf("/")));
         int bdayDay = Integer.parseInt(bday.substring(bday.indexOf("/")+1));
 
         int days = 0;
+        int difference = 0;
+        int monthOfTdy = tdyMonth;
+        int dayOfTdy = tdyDay;
 
-//        if (bdayDay < tdyDay) {
-//            bdayMonth --;
-//        }
+        if (tdyMonth > bdayMonth) {
+            difference = (bdayMonth + 12) - tdyMonth;
+        } else {
+            difference = bdayMonth - tdyMonth;
+        }
 
-        if ()
-//            if (tdyMonth > 12) {
-//                if ((tdyMonth == 13) || ((tdyMonth <= 19) && (tdyMonth % 2 == 1)) || ((tdyMonth >= 20) && (tdyMonth % 2 == 1))) {
-//                    days += 31;
-//                } else if (((tdyMonth <= 19) && (tdyMonth % 2 == 0) && (tdyMonth != 14)) || ((tdyMonth >= 20) && (tdyMonth % 2 == 0))) {
-//                    days += 30;
-//                } else {
-//                    days += 28;
-//                }
-//            } else {
-//                if ((tdyMonth == 1) || ((tdyMonth <= 7) && (tdyMonth % 2 == 1)) || ((tdyMonth >= 8) && (tdyMonth % 2 == 1))) {
-//                    days += 31;
-//                } else if (((tdyMonth <= 7) && (tdyMonth % 2 == 0) && (tdyMonth != 2)) || ((tdyMonth >= 8) && (tdyMonth % 2 == 0))) {
-//                    days += 30;
-//                } else {
-//                    days += 28;
-//                }
-//            }
-//            tdyMonth++;
-//        }
+        if (tdyDay > bdayDay) {
+            if ((bdayMonth == 1) || ((bdayMonth <= 7) && (bdayMonth % 2 == 1)) || ((bdayMonth >= 8) && (bdayMonth % 2 == 1))) {
+                dayOfTdy = 31 - dayOfTdy + monthOfTdy;
+            } else if (((bdayMonth <= 7) && (bdayMonth % 2 == 0) && (bdayMonth != 2)) || ((bdayMonth >= 8) && (bdayMonth % 2 == 0))) {
+                dayOfTdy = 30 - dayOfTdy + monthOfTdy;
+            } else {
+                dayOfTdy = 28 - dayOfTdy + monthOfTdy;
+            }
+        } else {
+            dayOfTdy -= bdayDay;
+        }
+        days += dayOfTdy;
+        for (int i = 0; i < difference; i++) {
+            if ((monthOfTdy == 1) || ((monthOfTdy <= 7) && (monthOfTdy % 2 == 1)) || ((monthOfTdy >= 8) && (monthOfTdy % 2 == 1))) {
+                days += 31;
+            } else if (((monthOfTdy <= 7) && (monthOfTdy % 2 == 0) && (monthOfTdy != 2)) || ((monthOfTdy >= 8) && (monthOfTdy % 2 == 0))) {
+                days += 30;
+            } else {
+                days += 28;
+            }
+            monthOfTdy++;
+        }
         if (days == 0) {
             System.out.println("Your birthday is today! Happy Birthday!");
         } else {
