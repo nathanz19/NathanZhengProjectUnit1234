@@ -65,7 +65,7 @@ public class Contact {
     }
 
     //Extra Methods
-    public void DaysUntilBday(String todaysDate) {
+    public void daysUntilBday(String todaysDate) {
         int tdyMonth = Integer.parseInt(todaysDate.substring(0,todaysDate.indexOf("/")));
         int tdyDay = Integer.parseInt(todaysDate.substring(todaysDate.indexOf("/")+1));
 
@@ -102,7 +102,7 @@ public class Contact {
             }
             monthOfTdy++;
         }
-        if (bdayDay != tdyDay) {
+        if (difference > 0 && bdayDay != tdyDay) {
             days = days - tdyDay + bdayDay;
         }
 
@@ -112,7 +112,8 @@ public class Contact {
             System.out.println("You have " + days + " days until your birthday!");
         }
     }
-//    public String toString() {
-//
-//    }
+    public String toString() {
+        String returnString = "Name: " + name + "\nNumber:"  + number + "\nAddress: " + address + "\nBirthday: " + birthday;
+        return returnString;
+    }
 }

@@ -9,10 +9,10 @@ public class Main {
         String name = s.nextLine();
 
         //Information
+        String answer1 = "";
         if (!name.equals("")) {
             System.out.println("Now you will be entering your information.");
             Thread.sleep(2000);
-            String answer1 = "";
             while ((!answer1.equals("yes")) && (!answer1.equals("no"))) {
                 System.out.println("Do you want to type in your personal info? (Type \"no\" and default information will be applied; otherwise, type \"yes\")");
                 answer1 = s.nextLine();
@@ -23,18 +23,23 @@ public class Main {
             }
         }
 
-        //Other info
-//        String birthday;
-//        String number;
-//        String address;
-//        Contact yourContact = new C
-//        if ((name.equals(""))) {
-//            Contact yourContact = new Contact();
-//        } else if (answer1.equals("no")){
-//            Contact yourContact = new Contact(name);
-//        } else {
-//            Contact your
-//        }
+        String birthday = "";
+        String number = "";
+        String address = "";
+        Contact yourContact = new Contact();
+        if (!(name.equals("")) && answer1.equals("no")) {
+            yourContact = new Contact();
+        } else if (!(name.equals("")) && answer1.equals("yes")) {
+            System.out.println("What is your number? (Type in format \"123-456-7890\"):");
+            number = s.nextLine();
+            System.out.println("What is your address?:");
+            address = s.nextLine();
+            System.out.println("What is your birthday? (Type in format \"month/day/year\")");
+            birthday = s.nextLine();
+            yourContact = new Contact(name,number,address,birthday);
+        }
+        System.out.println(yourContact.toString());
+        yourContact.daysUntilBday("1/9");
 
     }
 }
