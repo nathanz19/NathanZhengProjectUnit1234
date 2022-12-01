@@ -22,7 +22,6 @@ public class Main {
                 }
             }
         }
-
         String birthday = "";
         String number = "";
         String address = "";
@@ -34,12 +33,46 @@ public class Main {
             number = s.nextLine();
             System.out.println("What is your address?:");
             address = s.nextLine();
-            System.out.println("What is your birthday? (Type in format \"month/day/year\")");
+            System.out.println("What is your birthday? (Type in format \"month/day/year\"):");
             birthday = s.nextLine();
             yourContact = new Contact(name,number,address,birthday);
         }
-        System.out.println(yourContact.toString());
-        yourContact.daysUntilBday("1/9");
+
+        //Things to do
+        String answer2 = "";
+        yourContact.printInstructions();
+        while (!answer2.equals("quit")) {
+            answer2 = "";
+            System.out.print("What would you like to do?: ");
+            answer2 = s.nextLine();
+            if (answer2.equals("get info")) {
+                yourContact.printInfo();
+            } else if (answer2.equals("change address")) {
+                System.out.print("Please enter your new address: ");
+                String newAddress = s.nextLine();
+                yourContact.changeAddress(newAddress);
+            } else if (answer2.equals("change number")) {
+                System.out.print("Please enter your new number (Type in format \"123-456-7890\"): ");
+                String newNumber = s.nextLine();
+                yourContact.changeNumber(newNumber);
+            } else if (answer2.equals("change birthday")) {
+                System.out.print("Please enter your new birthday (Type in format \"month/day/year\"): ");
+                String newBirthday = s.nextLine();
+                yourContact.changeBirthday(newBirthday);
+            } else if (answer2.equals("generate number")) {
+                System.out.println("New number has been generated! Type \"get info\" to view your new number.");
+                yourContact.changeNumber(yourContact.generateNumber());
+            } else if (answer2.equals("days until birthday")) {
+                System.out.print("What is today's date (Type in format \"month/day\"): ");
+                String todayDate = s.nextLine();
+                yourContact.daysUntilBday(todayDate);
+            } else if (answer2.equals("quit")) {
+                System.out.println("Thanks for being here!");
+            } else {
+                System.out.println("We cannot resolve your request, please check your syntax and retype your request.");
+            }
+        }
+
 
     }
 }

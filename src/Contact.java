@@ -46,6 +46,17 @@ public class Contact {
         birthday = newBirthday;
         return birthday;
     }
+
+    public String changeAddress(String newAddress) {
+        address = newAddress;
+        return address;
+    }
+
+    public String changeNumber(String newNumber) {
+        number = newNumber;
+        return number;
+    }
+    //Extra Methods
     public String generateNumber() {
         String newNumber = "";
         for (int i = 0; i<=1; i++) {
@@ -59,12 +70,7 @@ public class Contact {
         }
         return newNumber;
     }
-    public String changeAddress(String newAddress) {
-        birthday = newAddress;
-        return address;
-    }
 
-    //Extra Methods
     public void daysUntilBday(String todaysDate) {
         int tdyMonth = Integer.parseInt(todaysDate.substring(0,todaysDate.indexOf("/")));
         int tdyDay = Integer.parseInt(todaysDate.substring(todaysDate.indexOf("/")+1));
@@ -112,8 +118,27 @@ public class Contact {
             System.out.println("You have " + days + " days until your birthday!");
         }
     }
+    //Print methods
     public String toString() {
-        String returnString = "Name: " + name + "\nNumber:"  + number + "\nAddress: " + address + "\nBirthday: " + birthday;
+        String returnString = "Name: " + getName() + "\nNumber: "  + getNumber() + "\nAddress: " + getAddress() + "\nBirthday: " + getBirthday();
         return returnString;
+    }
+    public void printInfo () {
+        System.out.println(toString());
+    }
+
+    public void printInstructions() {
+        System.out.println("Things you can do: (NOTE: Everything you type is case sensitive)");
+        System.out.println("------View-Information------");
+        System.out.println("Get your information: (Type \"get info\")");
+        System.out.println("------Change-Information------");
+        System.out.println("Change your address: (Type \"change address\")");
+        System.out.println("Change your birthday: (Type \"change birthday\")");
+        System.out.println("Change your number: (Type \"change number\")");
+        System.out.println("------Special-Tasks------");
+        System.out.println("Randomly generate a new number: (Type \"generate number\")");
+        System.out.println("Days until your next birthday: (Type \"days until birthday\")");
+        System.out.println("------Quit------");
+        System.out.println("To end the program: (Type \"quit\")");
     }
 }
