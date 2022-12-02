@@ -131,6 +131,7 @@ public class Contact {
         System.out.println("Things you can do: (NOTE: Everything you type is case sensitive)");
         System.out.println("------View-Information------");
         System.out.println("Get your information: (Type \"get info\")");
+        System.out.println("View instructions: (Type \"view instructions\")");
         System.out.println("------Change-Information------");
         System.out.println("Change your address: (Type \"change address\")");
         System.out.println("Change your birthday: (Type \"change birthday\")");

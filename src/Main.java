@@ -41,12 +41,15 @@ public class Main {
         //Things to do
         String answer2 = "";
         yourContact.printInstructions();
+        Thread.sleep(4000);
         while (!answer2.equals("quit")) {
             answer2 = "";
             System.out.print("What would you like to do?: ");
             answer2 = s.nextLine();
             if (answer2.equals("get info")) {
                 yourContact.printInfo();
+            } else if (answer2.equals("view instructions")) {
+                yourContact.printInstructions();
             } else if (answer2.equals("change address")) {
                 System.out.print("Please enter your new address: ");
                 String newAddress = s.nextLine();
