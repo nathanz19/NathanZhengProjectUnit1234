@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+        //Introduction
         Scanner s = new Scanner(System.in);
         System.out.println("Welcome to the best Contact Book!");
         Thread.sleep(2000);
