@@ -28,7 +28,7 @@ public class Main {
         String address = "";
         Contact yourContact = new Contact();
         if (!(name.equals("")) && answer1.equals("no")) {
-            yourContact = new Contact();
+            yourContact = new Contact(name);
         } else if (!(name.equals("")) && answer1.equals("yes")) {
             System.out.println("What is your number? (Type in format \"123-456-7890\"):");
             number = s.nextLine();
